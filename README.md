@@ -6,7 +6,11 @@
 
 An end-to-end data analytics project exploring trends in Netflix's content catalog. The project is being built incrementally to demonstrate the full analytics workflow: loading raw data, assessing data quality, cleaning and transforming records, exploring patterns, and communicating findings through visualizations.
 
-> **Project status:** Work in progress. The current script loads a local CSV, filters short movies by type, release year, and duration, and visualizes their duration distribution. Data-quality assessment, cleaning, reusable transformations, and additional analyses are planned next.
+![Line chart showing the number of movies in this dataset by release year](docs/images/movies-by-release-year.png)
+
+Second analysis: movies by release year. This line chart counts movies in the dataset for each release year, including all durations. It shows how release years are represented in this dataset; it does not measure Netflix production, audience popularity, or when titles were added to Netflix.
+
+> Project status: Work in progress. The current script checks missing values, duplicate rows, repeated show IDs, and empty text values. It also visualizes short-movie durations and movie counts by release year. Cleaning, reusable transformations, and additional analyses are planned next.
 
 ## Project Goal
 
@@ -62,7 +66,8 @@ project1/
 |-- .gitignore
 |-- docs/
 |   `-- images/
-|       `-- short-movie-duration-histogram.png
+|       |-- short-movie-duration-histogram.png
+|       `-- movies-by-release-year.png
 |-- h.py
 `-- README.md
 ```
@@ -99,6 +104,7 @@ python h.py
 - [x] Load the initial Netflix CSV with pandas
 - [x] Perform a first filter of release year and duration
 - [x] Visualize short-movie durations with a histogram and include a chart preview
+- [x] Group movies by release year and visualize yearly counts with a line chart
 - [ ] Profile missing values, duplicates, and inconsistent fields
 - [ ] Build reusable loading and validation functions
 - [ ] Clean dates, countries, genres, cast, and duration values

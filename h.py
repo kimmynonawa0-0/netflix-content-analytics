@@ -43,6 +43,27 @@ plt.title('NETFLIX SHORT-MOVIES RELEASED IN 1990 OR LATER')
 plt.xlabel('duration (in minutes)')
 plt.ylabel('number of movies')
 plt.show()
+plt.clf()
 
 # Most movies in this filtered dataset have durations between ___ and ___ minutes.
 # Movies below ___ minutes appear less/more frequently than movies near 90 minutes.
+
+movies_duration = ['type','duration','release_year']
+netflix_movies_duration = netflix_df[movies_duration]
+netflix_movies_duration = netflix_movies_duration[netflix_movies_duration['type']=='Movie']
+#print(netflix_movies_duration.head(10))
+count_per_year = (
+    netflix_movies_duration.groupby('release_year')
+    .size()
+    .reset_index(name='movie_count')
+    
+)
+
+plt.plot(
+    count_per_year['release_year'],
+    count_per_year['movie_count']
+    )
+plt.xlabel('release year')
+plt.ylabel('number of movies')
+plt.title('NETFLIX MOVIES BY RELEASE YEAR')
+plt.show()
