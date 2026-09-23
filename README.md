@@ -1,8 +1,12 @@
 # Netflix Content Analytics
 
+![Histogram of movie durations under 90 minutes for titles released in 1990 or later](docs/images/short-movie-duration-histogram.png)
+
+**First analysis: short-movie durations.** This histogram groups movies in the dataset released in 1990 or later with a runtime under 90 minutes into 10 duration intervals. Each bar shows the number of movies in that interval. The chart represents this filtered dataset, not Netflix's entire catalog.
+
 An end-to-end data analytics project exploring trends in Netflix's content catalog. The project is being built incrementally to demonstrate the full analytics workflow: loading raw data, assessing data quality, cleaning and transforming records, exploring patterns, and communicating findings through visualizations.
 
-> **Project status:** Work in progress. The repository currently contains the initial CSV dataset and an exploratory Python script. Cleaning, reusable transformations, analysis, and visualizations will be added in separate milestones.
+> **Project status:** Work in progress. The current script loads a local CSV, filters short movies by type, release year, and duration, and visualizes their duration distribution. Data-quality assessment, cleaning, reusable transformations, and additional analyses are planned next.
 
 ## Project Goal
 
@@ -56,6 +60,9 @@ Movies and TV shows should be analyzed separately when interpreting `duration`; 
 ```text
 project1/
 |-- .gitignore
+|-- docs/
+|   `-- images/
+|       `-- short-movie-duration-histogram.png
 |-- h.py
 `-- README.md
 ```
@@ -91,6 +98,7 @@ python h.py
 
 - [x] Load the initial Netflix CSV with pandas
 - [x] Perform a first filter of release year and duration
+- [x] Visualize short-movie durations with a histogram and include a chart preview
 - [ ] Profile missing values, duplicates, and inconsistent fields
 - [ ] Build reusable loading and validation functions
 - [ ] Clean dates, countries, genres, cast, and duration values
