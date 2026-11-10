@@ -9,8 +9,19 @@ An end-to-end data analytics project exploring trends in Netflix's content catal
 ![Line chart showing the number of movies in this dataset by release year](docs/images/movies-by-release-year.png)
 
 Second analysis: movies by release year. This line chart counts movies in the dataset for each release year, including all durations. It shows how release years are represented in this dataset; it does not measure Netflix production, audience popularity, or when titles were added to Netflix.
+**Third analysis: top countries.** This horizontal bar chart shows the 10
+country values that appear most often among titles with a recorded country.
+The `country` column can hold multiple comma-separated countries per title
+(e.g. `"United States, India"`), so a title like that is counted once under
+the combined string. Rows with a missing or empty country are excluded from
+this chart. Like the previous charts, it describes this dataset, not
+Netflix's global catalog.
 
-> Project status: Work in progress. The current script checks missing values, duplicate rows, repeated show IDs, and empty text values. It also visualizes short-movie durations and movie counts by release year. Cleaning, reusable transformations, and additional analyses are planned next.
+> Project status: Work in progress. The current script checks missing values,
+> duplicate rows, repeated show IDs, and empty text values. It also visualizes
+> short-movie durations, movie counts by release year, and the top countries
+> by number of titles. Cleaning, reusable transformations, and additional
+> analyses are planned next.
 
 ## Project Goal
 
@@ -67,7 +78,8 @@ project1/
 |-- docs/
 |   `-- images/
 |       |-- short-movie-duration-histogram.png
-|       `-- movies-by-release-year.png
+|       |-- movies-by-release-year.png
+|       `-- top-countries-bar-chart.png
 |-- h.py
 `-- README.md
 ```
