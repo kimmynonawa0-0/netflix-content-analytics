@@ -75,36 +75,3 @@ plt.title('NETFLIX MOVIES BY RELEASE YEAR')
 plt.tight_layout()
 plt.show()
 plt.clf()
-
-# Country analysis: which countries contribute the most titles.
-
-# Many titles have missing or empty country values.
-# Keep only rows where country is actually recorded.
-titles_with_country = netflix_df[
-    netflix_df['country'].notna()
-    & (netflix_df['country'] != '')
-]
-
-print(f'\nTitles with a recorded country: {len(titles_with_country)}')
-
-# Count the top 10 country values by number of titles.
-# Note: the country column can hold several countries per title
-# (e.g. "United States, India"), so this counts the combined text.
-country_counts = titles_with_country['country'].value_counts().head(10)
-print('\nTop 10 countries by number of titles:')
-print(country_counts)
-
-# Horizontal bar chart because country names are long.
-plt.barh(
-    country_counts.index,
-    country_counts.values,
-    color='mediumseagreen',
-    edgecolor='black'
-)
-plt.title('TOP 10 COUNTRIES BY NUMBER OF NETFLIX TITLES')
-plt.xlabel('number of titles')
-plt.ylabel('country')
-plt.gca().invert_yaxis()  # highest count at the top
-plt.tight_layout()
-plt.show()
-plt.clf()
