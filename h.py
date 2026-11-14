@@ -108,3 +108,31 @@ plt.gca().invert_yaxis()  # highest count at the top
 plt.tight_layout()
 plt.show()
 plt.clf()
+
+# TV show analysis: distribution of seasons across shows.
+
+# The duration column holds seasons for TV shows and minutes for movies.
+# Analyzing them separately follows the note in the README.
+netflix_tv_shows = netflix_df[netflix_df['type'] == 'TV Show']
+
+print(f'\nTotal TV shows in the dataset: {len(netflix_tv_shows)}')
+
+# Count how many shows have each season count.
+# sort_index() keeps the x-axis in numeric order (1, 2, 3, ...).
+season_counts = netflix_tv_shows['duration'].value_counts().sort_index()
+print('\nNumber of shows by season count:')
+print(season_counts)
+
+# Vertical bar chart: seasons on the x-axis, number of shows on the y-axis.
+plt.bar(
+    season_counts.index,
+    season_counts.values,
+    color='steelblue',
+    edgecolor='black'
+)
+plt.title('NETFLIX TV SHOWS BY NUMBER OF SEASONS')
+plt.xlabel('number of seasons')
+plt.ylabel('number of shows')
+plt.tight_layout()
+plt.show()
+plt.clf()
