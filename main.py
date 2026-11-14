@@ -136,3 +136,27 @@ plt.ylabel('number of shows')
 plt.tight_layout()
 plt.show()
 plt.clf()
+
+# Genre analysis: which genres appear most frequently in the catalog.
+
+# Count how often each genre value appears across all titles.
+# The README describes genre as a single primary category per title,
+# so no splitting is needed (unlike the country column).
+genre_counts = netflix_df['genre'].value_counts().head(10)
+print('\nTop 10 genres by number of titles:')
+print(genre_counts)
+
+# Horizontal bar chart because genre names can be long.
+plt.barh(
+    genre_counts.index,
+    genre_counts.values,
+    color='coral',
+    edgecolor='black'
+)
+plt.title('TOP 10 GENRES BY NUMBER OF NETFLIX TITLES')
+plt.xlabel('number of titles')
+plt.ylabel('genre')
+plt.gca().invert_yaxis()  # highest count at the top
+plt.tight_layout()
+plt.show()
+plt.clf()
